@@ -1,9 +1,13 @@
-# Placeholder MakefileCXX = g++
-CXXFLAGS = -Wall -Wextra -std=c++11
+# Makefile for CPP Load Balancer
+
+CXX = g++
+CXXFLAGS = -Wall -Wextra -std=c++17 -g
 
 SRCS = main.cpp Request.cpp WebServer.cpp LoadBalancer.cpp
 OBJS = $(SRCS:.cpp=.o)
 EXEC = loadbalancer
+
+.PHONY: all clean run
 
 all: $(EXEC)
 
@@ -14,4 +18,7 @@ $(EXEC): $(OBJS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(EXEC) log.txt
+	-rm -f $(OBJS) $(EXEC) log.txt
+
+run: $(EXEC)
+	./$(EXEC)
