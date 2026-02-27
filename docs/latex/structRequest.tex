@@ -1,0 +1,102 @@
+\hypertarget{structRequest}{}\doxysection{Request Struct Reference}
+\label{structRequest}\index{Request@{Request}}
+
+
+A struct representing a single network request.  
+
+
+
+
+{\ttfamily \#include $<$Request.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structRequest_afaf8d8928de7ffff8a3767589489bd33}{Request}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{structRequest}{Request}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structRequest_a9331de2ccac6bca9a37616d103db6568}{ip\+\_\+in}}
+\begin{DoxyCompactList}\small\item\em The source IP address of the requester. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{structRequest_a789e85de4e06e293c519fa6ed14539f3}{ip\+\_\+out}}
+\begin{DoxyCompactList}\small\item\em The destination IP address for the results. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structRequest_a3cfb576ed0b5e08612f3de8bc7cd72e2}{time}}
+\begin{DoxyCompactList}\small\item\em The processing time required (in clock cycles). \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{structRequest_ad49a0f18615ea50f9a11cd2494c93044}{job\+Type}}
+\begin{DoxyCompactList}\small\item\em The type of job\+: \textquotesingle{}P\textquotesingle{} for Processing, \textquotesingle{}S\textquotesingle{} for Streaming. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct representing a single network request. 
+
+
+\begin{DoxyItemize}
+\item This lower-\/level data structure encapsulates all the necessary information for a simulated network job, including source and destination IP addresses, the processing time required, and the type of job (Processing or Streaming). 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structRequest_afaf8d8928de7ffff8a3767589489bd33}\label{structRequest_afaf8d8928de7ffff8a3767589489bd33}} 
+\index{Request@{Request}!Request@{Request}}
+\index{Request@{Request}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{Request()}{Request()}}
+{\footnotesize\ttfamily Request\+::\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{structRequest}{Request}}. 
+
+Constructs a new \mbox{\hyperlink{structRequest}{Request}} object with randomized data.
+
+
+\begin{DoxyItemize}
+\item Automatically generates random IP addresses, a random required processing time, and a random job type upon instantiation. 
+\end{DoxyItemize}
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structRequest_a9331de2ccac6bca9a37616d103db6568}\label{structRequest_a9331de2ccac6bca9a37616d103db6568}} 
+\index{Request@{Request}!ip\_in@{ip\_in}}
+\index{ip\_in@{ip\_in}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{ip\_in}{ip\_in}}
+{\footnotesize\ttfamily std\+::string Request\+::ip\+\_\+in}
+
+
+
+The source IP address of the requester. 
+
+\mbox{\Hypertarget{structRequest_a789e85de4e06e293c519fa6ed14539f3}\label{structRequest_a789e85de4e06e293c519fa6ed14539f3}} 
+\index{Request@{Request}!ip\_out@{ip\_out}}
+\index{ip\_out@{ip\_out}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{ip\_out}{ip\_out}}
+{\footnotesize\ttfamily std\+::string Request\+::ip\+\_\+out}
+
+
+
+The destination IP address for the results. 
+
+\mbox{\Hypertarget{structRequest_ad49a0f18615ea50f9a11cd2494c93044}\label{structRequest_ad49a0f18615ea50f9a11cd2494c93044}} 
+\index{Request@{Request}!jobType@{jobType}}
+\index{jobType@{jobType}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{jobType}{jobType}}
+{\footnotesize\ttfamily char Request\+::job\+Type}
+
+
+
+The type of job\+: \textquotesingle{}P\textquotesingle{} for Processing, \textquotesingle{}S\textquotesingle{} for Streaming. 
+
+\mbox{\Hypertarget{structRequest_a3cfb576ed0b5e08612f3de8bc7cd72e2}\label{structRequest_a3cfb576ed0b5e08612f3de8bc7cd72e2}} 
+\index{Request@{Request}!time@{time}}
+\index{time@{time}!Request@{Request}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily int Request\+::time}
+
+
+
+The processing time required (in clock cycles). 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Request_8h}{Request.\+h}}\item 
+\mbox{\hyperlink{Request_8cpp}{Request.\+cpp}}\end{DoxyCompactItemize}

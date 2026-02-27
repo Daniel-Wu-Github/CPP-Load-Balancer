@@ -1,0 +1,160 @@
+\hypertarget{classLoadBalancer}{}\doxysection{Load\+Balancer Class Reference}
+\label{classLoadBalancer}\index{LoadBalancer@{LoadBalancer}}
+
+
+Manages the request queue and routes jobs to an active pool of web servers.  
+
+
+
+
+{\ttfamily \#include $<$Load\+Balancer.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLoadBalancer_a41456019644f68fba35793776cc2b1c8}{Load\+Balancer}} (int initial\+Servers)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classLoadBalancer}{Load\+Balancer}} with a starting number of servers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadBalancer_aeea592dc23309322e69bd9ec7282a7c2}{set\+Blocked\+IPRange}} (std\+::string ip\+Prefix)
+\begin{DoxyCompactList}\small\item\em Sets an IP prefix to block (e.\+g., \char`\"{}192.\+168.\char`\"{}). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadBalancer_abe875e987658e464f67e7c8e6ddc5faa}{add\+Request}} (\mbox{\hyperlink{structRequest}{Request}} r)
+\begin{DoxyCompactList}\small\item\em Adds a new request to the queue, subject to firewall rules. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadBalancer_a9c28b7a88af59014b4d7a9d68ea7d41f}{distribute\+Request}} ()
+\begin{DoxyCompactList}\small\item\em Iterates through servers, assigning queued requests to idle ones, and advances the simulation clock by 1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLoadBalancer_afee9e94cee89d612e0e1c477ea2abe74}{balance\+Servers}} ()
+\begin{DoxyCompactList}\small\item\em Dynamically scales the server pool based on queue size. Adds a server if queue $>$ servers $\ast$ 80. Removes a server if queue $<$ servers $\ast$ 50. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoadBalancer_a67f69474ba8adb7935400814efbea349}{get\+System\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current system time (clock cycle). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}{get\+Queue\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current number of pending requests. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoadBalancer_a8e5a0eccaac6614b0df556f5972eb271}{get\+Server\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the current number of active servers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the request queue and routes jobs to an active pool of web servers. 
+
+
+\begin{DoxyItemize}
+\item The \mbox{\hyperlink{classLoadBalancer}{Load\+Balancer}} handles dynamic scaling by provisioning and de-\/provisioning Web\+Servers based on the current queue size. It also features a firewall mechanism to drop requests from blocked IP ranges. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLoadBalancer_a41456019644f68fba35793776cc2b1c8}\label{classLoadBalancer_a41456019644f68fba35793776cc2b1c8}} 
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\index{LoadBalancer@{LoadBalancer}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{LoadBalancer()}{LoadBalancer()}}
+{\footnotesize\ttfamily Load\+Balancer\+::\+Load\+Balancer (\begin{DoxyParamCaption}\item[{int}]{initial\+Servers }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classLoadBalancer}{Load\+Balancer}} with a starting number of servers. 
+
+Initializes the load balancer, clock, and starting server pool.
+
+
+\begin{DoxyParams}{Parameters}
+{\em initial\+Servers} & The number of Web\+Servers to start with. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLoadBalancer_abe875e987658e464f67e7c8e6ddc5faa}\label{classLoadBalancer_abe875e987658e464f67e7c8e6ddc5faa}} 
+\index{LoadBalancer@{LoadBalancer}!addRequest@{addRequest}}
+\index{addRequest@{addRequest}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{addRequest()}{addRequest()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::add\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structRequest}{Request}}}]{r }\end{DoxyParamCaption})}
+
+
+
+Adds a new request to the queue, subject to firewall rules. 
+
+Adds a request if it passes the firewall check.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The request to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLoadBalancer_afee9e94cee89d612e0e1c477ea2abe74}\label{classLoadBalancer_afee9e94cee89d612e0e1c477ea2abe74}} 
+\index{LoadBalancer@{LoadBalancer}!balanceServers@{balanceServers}}
+\index{balanceServers@{balanceServers}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{balanceServers()}{balanceServers()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::balance\+Servers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dynamically scales the server pool based on queue size. Adds a server if queue $>$ servers $\ast$ 80. Removes a server if queue $<$ servers $\ast$ 50. 
+
+Handles dynamic allocation and deallocation (scaling). \mbox{\Hypertarget{classLoadBalancer_a9c28b7a88af59014b4d7a9d68ea7d41f}\label{classLoadBalancer_a9c28b7a88af59014b4d7a9d68ea7d41f}} 
+\index{LoadBalancer@{LoadBalancer}!distributeRequest@{distributeRequest}}
+\index{distributeRequest@{distributeRequest}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{distributeRequest()}{distributeRequest()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::distribute\+Request (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Iterates through servers, assigning queued requests to idle ones, and advances the simulation clock by 1. 
+
+Core loop logic matching the flowchart\+: distributes jobs and ticks the clock. \mbox{\Hypertarget{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}\label{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}} 
+\index{LoadBalancer@{LoadBalancer}!getQueueSize@{getQueueSize}}
+\index{getQueueSize@{getQueueSize}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getQueueSize()}{getQueueSize()}}
+{\footnotesize\ttfamily int Load\+Balancer\+::get\+Queue\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current number of pending requests. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing queue size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoadBalancer_a8e5a0eccaac6614b0df556f5972eb271}\label{classLoadBalancer_a8e5a0eccaac6614b0df556f5972eb271}} 
+\index{LoadBalancer@{LoadBalancer}!getServerCount@{getServerCount}}
+\index{getServerCount@{getServerCount}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getServerCount()}{getServerCount()}}
+{\footnotesize\ttfamily int Load\+Balancer\+::get\+Server\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current number of active servers. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing the active server pool size. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoadBalancer_a67f69474ba8adb7935400814efbea349}\label{classLoadBalancer_a67f69474ba8adb7935400814efbea349}} 
+\index{LoadBalancer@{LoadBalancer}!getSystemTime@{getSystemTime}}
+\index{getSystemTime@{getSystemTime}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getSystemTime()}{getSystemTime()}}
+{\footnotesize\ttfamily int Load\+Balancer\+::get\+System\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the current system time (clock cycle). 
+
+\begin{DoxyReturn}{Returns}
+Integer representing system time. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoadBalancer_aeea592dc23309322e69bd9ec7282a7c2}\label{classLoadBalancer_aeea592dc23309322e69bd9ec7282a7c2}} 
+\index{LoadBalancer@{LoadBalancer}!setBlockedIPRange@{setBlockedIPRange}}
+\index{setBlockedIPRange@{setBlockedIPRange}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{setBlockedIPRange()}{setBlockedIPRange()}}
+{\footnotesize\ttfamily void Load\+Balancer\+::set\+Blocked\+IPRange (\begin{DoxyParamCaption}\item[{std\+::string}]{ip\+Prefix }\end{DoxyParamCaption})}
+
+
+
+Sets an IP prefix to block (e.\+g., \char`\"{}192.\+168.\char`\"{}). 
+
+Configures the firewall IP blocker.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ip\+Prefix} & The starting substring of IPs to reject. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{LoadBalancer_8h}{Load\+Balancer.\+h}}\item 
+\mbox{\hyperlink{LoadBalancer_8cpp}{Load\+Balancer.\+cpp}}\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@
  */
 WebServer::WebServer(int id) {
 	serverID = id;
-	timeLeft = 0; // 0 means the server is currently free
+	timeLeft = 0;
 }
 
 /**
