@@ -27,7 +27,9 @@ int \mbox{\hyperlink{classLoadBalancer_a67f69474ba8adb7935400814efbea349}{get\+S
 int \mbox{\hyperlink{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}{get\+Queue\+Size}} () const
 \begin{DoxyCompactList}\small\item\em Retrieves the current number of pending requests. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classLoadBalancer_a8e5a0eccaac6614b0df556f5972eb271}{get\+Server\+Count}} () const
-\begin{DoxyCompactList}\small\item\em Retrieves the current number of active servers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retrieves the current number of active servers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLoadBalancer_a463965ba39ca0d8d9d703028ad55028b}{get\+Blocked\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Retrieves the number of requests rejected by the firewall. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -96,7 +98,20 @@ Handles dynamic allocation and deallocation (scaling). \mbox{\Hypertarget{classL
 
 Iterates through servers, assigning queued requests to idle ones, and advances the simulation clock by 1. 
 
-Core loop logic matching the flowchart\+: distributes jobs and ticks the clock. \mbox{\Hypertarget{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}\label{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}} 
+Core loop logic matching the flowchart\+: distributes jobs and ticks the clock. \mbox{\Hypertarget{classLoadBalancer_a463965ba39ca0d8d9d703028ad55028b}\label{classLoadBalancer_a463965ba39ca0d8d9d703028ad55028b}} 
+\index{LoadBalancer@{LoadBalancer}!getBlockedCount@{getBlockedCount}}
+\index{getBlockedCount@{getBlockedCount}!LoadBalancer@{LoadBalancer}}
+\doxysubsubsection{\texorpdfstring{getBlockedCount()}{getBlockedCount()}}
+{\footnotesize\ttfamily int Load\+Balancer\+::get\+Blocked\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves the number of requests rejected by the firewall. 
+
+\begin{DoxyReturn}{Returns}
+Integer representing blocked request count. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}\label{classLoadBalancer_ad2b3d3c28b4aef4bc64f6a9429e3e95c}} 
 \index{LoadBalancer@{LoadBalancer}!getQueueSize@{getQueueSize}}
 \index{getQueueSize@{getQueueSize}!LoadBalancer@{LoadBalancer}}
 \doxysubsubsection{\texorpdfstring{getQueueSize()}{getQueueSize()}}

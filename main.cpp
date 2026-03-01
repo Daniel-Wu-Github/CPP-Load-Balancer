@@ -87,8 +87,10 @@ int main() {
 
     std::string finalMsg = "\n=== SIMULATION COMPLETE ===\n"
                            "Final Time: " + std::to_string(lb.getSystemTime()) + " cycles.\n" +
-                           "Final Queue Size: " + std::to_string(lb.getQueueSize()) + "\n" +
-                           "Final Server Count: " + std::to_string(lb.getServerCount()) + "\n";
+                           "Final Queue Size: " + std::to_string(lb.getQueueSize()) + " requests remaining.\n" +
+                           "Final Active Server Count: " + std::to_string(lb.getServerCount()) + " servers.\n" +
+                           "Total Requests Blocked by Firewall: " + std::to_string(lb.getBlockedCount()) + " requests.\n" +
+                           "Task Time Range Configured: 5 to 500 clock cycles.\n";
                            
     std::cout << CYAN << finalMsg << RESET;
     logFile << finalMsg;

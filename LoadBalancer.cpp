@@ -7,6 +7,7 @@ LoadBalancer::LoadBalancer(int initialServers) {
 	systemTime = 0;
 	nextServerID = 1;
 	 blockedIPRange = "";
+	blockedCount = 0;
 
 	for (int i = 0; i < initialServers; ++i) {
 		servers.push_back(WebServer(nextServerID++));
@@ -25,6 +26,7 @@ void LoadBalancer::setBlockedIPRange(std::string ipPrefix) {
  */
 void LoadBalancer::addRequest(Request r) {
 	if (!blockedIPRange.empty() && r.ip_in.find(blockedIPRange) == 0) {
+		blockedCount++;
 		return; 
 	}
 	requests.push(r);
@@ -64,3 +66,4 @@ void LoadBalancer::balanceServers() {
 int LoadBalancer::getSystemTime() const { return systemTime; }
 int LoadBalancer::getQueueSize() const { return requests.size(); }
 int LoadBalancer::getServerCount() const { return servers.size(); }
+int LoadBalancer::getBlockedCount() const { return blockedCount; }

@@ -21,6 +21,7 @@ private:
 	int systemTime;                 ///< Current clock cycle of the simulation.
 	int nextServerID;               ///< Tracker to assign unique IDs to new servers.
 	std::string blockedIPRange;     ///< IP prefix to drop (Firewall).
+	int blockedCount;               ///< Total requests dropped by firewall rules.
 
 public:
 	/**
@@ -71,6 +72,12 @@ public:
 	 * @return Integer representing the active server pool size.
 	 */
 	int getServerCount() const;
+
+	/**
+	 * @brief Retrieves the number of requests rejected by the firewall.
+	 * @return Integer representing blocked request count.
+	 */
+	int getBlockedCount() const;
 };
 
 #endif // LOADBALANCER_H

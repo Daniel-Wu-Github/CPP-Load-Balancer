@@ -22,3 +22,9 @@ clean:
 
 run: $(EXEC)
 	./$(EXEC)
+
+switch: switch.o Request.o WebServer.o LoadBalancer.o
+	$(CXX) $(CXXFLAGS) -o loadbalancer_switch switch.o Request.o WebServer.o LoadBalancer.o
+
+run-switch: switch
+	./loadbalancer_switch
